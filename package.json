@@ -1,0 +1,25 @@
+{
+  "name": "plumber-box",
+  "version": "0.1.0",
+  "description": "Plumber extension to align boxes to the baseline grid",
+  "main": "_plumber-box.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jamonserrano@github.com/jamonserrano/plumber-box.git"
+  },
+  "keywords": [
+    "plumber",
+    "plumber-extension",
+    "baseline-grid",
+    "typography"
+  ],
+  "author": "Viktor Honti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamonserrano/plumber-box/issues"
+  },
+  "homepage": "https://github.com/jamonserrano/plumber-box#readme"
+}
