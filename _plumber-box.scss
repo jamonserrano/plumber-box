@@ -2,7 +2,7 @@
 // Align boxes to the baseline grid
 @mixin plumber-box(
 	$margin: 0 0,
-	$border: 0 0,
+	$border: 0px 0px,
 	$padding: 0 0,
 	$grid-height: null
 ) {
@@ -34,7 +34,7 @@
 		$border: ($top $top);
 	}
 	@each $value in $border {
-		@if $value < 0 {
+		@if unitless($value) or $value < 0 {
 			@error '$border values must be positive, got $value instead';
 		}
 	}
