@@ -14,7 +14,11 @@
     "plumber",
     "plumber-extension",
     "baseline-grid",
-    "typography"
+    "vertical-rhythm",
+    "typography",
+    "css",
+    "scss",
+    "sass"
   ],
   "author": "Viktor Honti",
   "license": "MIT",
