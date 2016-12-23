@@ -20,20 +20,21 @@
 	}
 	@if not $grid-height {
 		// no luck :(
-		@error '$grid-height must be passed as a parameter or defined in plumber defaults';
+		@error '$grid-height must be passed as a parameter or defined with -plumber-set-defaults';
 	} @else if unitless($grid-height) or $grid-height <= 0 {
 		// got it, check validity
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
 	}
 
-	// if margin has one value use it for both top and bottom, then check is it!s integer
+	// if margin has one value use it for both top and bottom
 	@if length($margin) == 1 {
 		$top: $margin;
 		$margin: ($top $top);
 	}
+	// check validity
 	@each $value in $margin {
 		@if not -plumber-is-integer($value) {
-			@error '$margin values must be integers, got $value instead';
+			@error '$margin values must be integers, got #{$value} instead';
 		}
 	}
 
@@ -42,13 +43,14 @@
 		$top: $padding;
 		$padding: ($top $top);
 	}
+	// check validity
 	@each $value in $padding {
 		@if not -plumber-is-integer($value) or $value < 0 {
-			@error '$padding values must be non-negative integers, got $value instead';
+			@error '$padding values must be non-negative integers, got #{$value} instead';
 		}
 	}
 
-	// generate CSS margins and paddings
+	// *** CSS OUTPUT ***
 	@each $position, $index in (top: 1, bottom: 2) {
 		margin-#{$position}: calc(#{nth($margin, $index) * $grid-height});
 		padding-#{$position}: nth($padding, $index) * $grid-height;
