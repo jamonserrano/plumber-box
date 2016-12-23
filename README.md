@@ -1,5 +1,5 @@
 # Plumber box
-Plumber extension to align boxes to the vertical grid.
+[Plumber](https://jamonserrano.github.io/plumber-sass) extension to align boxes to the vertical grid.
 
 Use this mixin whenever you need to add margins and paddings to a container element without breaking the grid.
 
@@ -74,7 +74,7 @@ blockquote {
 ```
 
 ### Borders
-Use outlines instead of borders when styling plumber boxes – they are not included in the element size so they won't break the grid.
+Use outlines instead of borders when styling plumber boxes – outlines are not included in the element size so they won't break the grid.
 ```scss
 blockquote {
 	// bad
@@ -98,7 +98,7 @@ Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
 $grid-height | Grid height | Any unit | 1rem
 $margin | Top and bottom margin as a multiple of grid height | One or two integers | 0
-$padding | Top and bottom padding as a multiple of grid height | One or two non-negative integer | 0
+$padding | Top and bottom padding as a multiple of grid height | One or two non-negative integers | 0
 
 **Output:** `margin-top`, `margin-bottom`, `padding-top`, `padding-bottom` properties with the same unit as the grid height.
 
