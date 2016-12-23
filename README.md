@@ -10,7 +10,7 @@ First, make sure to [install and import plumber-sass](https://jamonserrano.githu
 ### Manual
 Download and extract [the latest release](https://api.github.com/repos/jamonserrano/plumber-box/zipball), move `_plumber-box.scss` into the vendor folder of your project and import it:
 
-```sass
+```scss
 @import "vendor/plumber-box";
 ```
 
