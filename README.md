@@ -11,7 +11,7 @@ First, make sure to [install and import plumber-sass](https://jamonserrano.githu
 Download and extract [the latest release](https://api.github.com/repos/jamonserrano/plumber-box/zipball), move `_plumber-box.scss` into the vendor folder of your project and import it:
 
 ```sass
-@import vendor/plumber-box;
+@import "vendor/plumber-box";
 ```
 
 ### NPM / Yarn
@@ -27,7 +27,7 @@ $ yarn add plumber-box --dev
 And import it in your project:
 
 ```scss
-@import node_modules/plumber-box/plumber-box;
+@import "node_modules/plumber-box/plumber-box";
 ```
 
 ### Bower
@@ -39,7 +39,7 @@ $ bower install plumber-box --save-dev
 And import it in your project:
 
 ```scss
-@import bower_components/plumber-box/plumber-box;
+@import "bower_components/plumber-box/plumber-box";
 ```
 
 ## Usage
