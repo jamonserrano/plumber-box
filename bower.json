@@ -1,0 +1,27 @@
+{
+  "name": "plumber-box",
+  "description": "Plumber extension to align boxes to the baseline grid",
+  "main": "_plumber-box.scss",
+  "authors": [
+    "Viktor Honti"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "plumber",
+    "plumber-extension",
+    "baseline-grid",
+    "vertical-rhythm",
+    "typography",
+    "css",
+    "scss",
+    "sass"
+  ],
+  "homepage": "https://github.com/jamonserrano/plumber-box",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
