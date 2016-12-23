@@ -2,7 +2,6 @@
 // Align boxes to the baseline grid
 @mixin plumber-box(
 	$margin: 0 0,
-	$border: 0px 0px,
 	$padding: 0 0,
 	$grid-height: null
 ) {
@@ -18,6 +17,7 @@
 		// got it, check validity
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
 	}
+
 	// if margin has one value use it for both top and bottom, then check is it!s integer
 	@if length($margin) == 1 {
 		$top: $margin;
@@ -28,16 +28,7 @@
 			@error '$margin values must be integers, got $value instead';
 		}
 	}
-	// if border has one value use it for both top and bottom
-	@if length($border) == 1 {
-		$top: $border;
-		$border: ($top $top);
-	}
-	@each $value in $border {
-		@if unitless($value) or $value < 0 {
-			@error '$border values must be positive, got $value instead';
-		}
-	}
+
 	// if padding has one value use it for both top and bottom
 	@if length($padding) == 1 {
 		$top: $padding;
@@ -49,9 +40,9 @@
 		}
 	}
 
-	// generate margins and paddings
+	// generate CSS margins and paddings
 	@each $position, $index in (top: 1, bottom: 2) {
-		margin-#{$position}: calc(#{nth($margin, $index) * $grid-height} - #{nth($border, $index)});
+		margin-#{$position}: calc(#{nth($margin, $index) * $grid-height});
 		padding-#{$position}: nth($padding, $index) * $grid-height;
 	}
 }
