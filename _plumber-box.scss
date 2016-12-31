@@ -70,7 +70,14 @@
 	// *** CSS OUTPUT ***
 	@each $position, $index in (top: 1, bottom: 2) {
 		margin-#{$position}: nth($margin, $index) * $grid-height;
-		padding-#{$position}: calc(#{nth($padding, $index) * $grid-height} - #{nth($border, $index)});
-		border-#{$position}-width: nth($border, $index);
+		
+		$currentPadding: nth($padding, $index);
+		$currentBorder: nth($border, $index);
+		@if $currentBorder > 0 and $currentPadding == 0 {
+			@error 'Cannot use borders with 0 padding';
+		}
+
+		padding-#{$position}: calc(#{$currentPadding * $grid-height} - #{$currentBorder});
+		border-#{$position}-width: $currentBorder;
 	}
 }

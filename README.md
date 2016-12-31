@@ -92,6 +92,8 @@ blockquote {
 ```
 
 > The border width will be substracted from the padding.
+> 
+> Inside borders cannot be used with 0 padding.
 
 #### Outside
 Use the CSS `outline` property to add outside borders:
