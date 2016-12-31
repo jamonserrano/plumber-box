@@ -1,6 +1,6 @@
 {
   "name": "plumber-box",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Plumber extension to align boxes to the baseline grid",
   "main": "_plumber-box.scss",
   "scripts": {
