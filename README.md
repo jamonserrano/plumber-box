@@ -1,7 +1,7 @@
 # Plumber box
 [Plumber](https://jamonserrano.github.io/plumber-sass) extension to align boxes to the vertical grid.
 
-Use this mixin whenever you need to add margins and paddings to a container element without breaking the grid.
+Use this mixin whenever you need to add margins, paddings, and borders to a flexible container element without breaking the grid.
 
 ## Installation
 
@@ -44,7 +44,7 @@ And import it in your project:
 
 ## Usage
 
-1\. Set up the grid height for Plumber:
+1\. Set up the grid height for Plumber if you haven't done it before:
 
 ```scss
 @include plumber-set-defaults($grid-height: 1rem);
@@ -61,27 +61,67 @@ blockquote {
 }
 ```
 
-### Shorthand values
-You can use shorthand values to set the same top and bottom values:
+This will generate the following CSS:
+
+```css
+blockquote {
+	margin-top: 2rem;
+	padding-top: 1rem;
+	margin-bottom: 0;
+	padding-bottom: 1rem;
+}
+```
+
+### Borders
+Borders can be set on the inside or on the outside of the box, taking away some space from the padding or margin respectively.
+
+#### Inside
+Add the `$border` parameter to the mixin, define borders and box-sizing:
+
+```scss
+blockquote {
+	@include plumber-box(
+		$margin: 2 0,
+		$border: 2px 2px,
+		$padding: 1 1
+	);
+
+	border: 2px solid gold;
+	box-sizing: border-box;
+}
+```
+
+> The border width will be substracted from the padding.
+
+#### Outside
+Use the CSS `outline` property to add outside borders:
+
+```scss
+blockquote {
+	@include plumber-box(
+		$margin: 2 0,
+		$padding: 1 1
+	);
+
+	outline: 2px solid gold;
+}
+```
+
+> The outline will visually decrease the margin but it is not included in the element size so it won't break the grid.
+>
+> Rounded borders are not possible with this method.
+
+
+### Shorthands
+You can use shorthands to set the same top and bottom values:
 
 ```scss
 blockquote {
 	@include plumber-box(
 		$margin: 2, // top and bottom margin
+		$border: 1px // top and bottom border
 		$padding: 1 // top and bottom padding
 	);
-}
-```
-
-### Borders
-Use outlines instead of borders when styling plumber boxes – outlines are not included in the element size so they won't break the grid.
-```scss
-blockquote {
-	// bad
-	// border: 1px solid gold;
-	
-	// good
-	outline: 1px solid gold;
 }
 ```
 
@@ -96,9 +136,10 @@ The main mixin.
 
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
-$grid-height | Grid height | Any unit | 1rem
-$margin | Top and bottom margin as a multiple of grid height | One or two integers | 0
-$padding | Top and bottom padding as a multiple of grid height | One or two non-negative integers | 0
+$grid-height | Override the default grid height | Any unit | As set in Plumber
+$margin | Top and bottom margin as a multiple of grid height | One or two integers | `0`
+$border | Top and bottom border width | One or two non-negative `px` values or `0`s | `0px`
+$padding | Top and bottom padding as a multiple of grid height | One or two non-negative integers | `0`
 
 **Output:** `margin-top`, `margin-bottom`, `padding-top`, `padding-bottom` properties with the same unit as the grid height.
 
